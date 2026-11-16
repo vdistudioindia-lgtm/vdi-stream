@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VDI STREAM | Anime Ka Naya Adda</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#090a0f;color:white;font-family:Arial,sans-serif}
+header{padding:20px 6%;display:flex;justify-content:space-between;align-items:center;background:#101116;border-bottom:1px solid #252630}
+.logo{font-size:25px;font-weight:900;color:#ff303c}
+.logo span{color:white}
+nav a{color:#ddd;text-decoration:none;margin-left:15px;font-size:13px}
+.hero{padding:65px 7%;background:linear-gradient(90deg,#170b13,#17101b,#10121c);min-height:310px}
+.tag{color:#ff4651;font-size:12px;font-weight:bold;letter-spacing:3px}
+.hero h1{font-size:43px;margin:17px 0 10px}
+.hero h1 span{color:#ff303c}
+.hero p{color:#bbb;max-width:420px;line-height:1.6}
+.btn{display:inline-block;background:#ed2636;color:white;border:0;padding:13px 22px;border-radius:6px;margin-top:22px;font-weight:bold;cursor:pointer}
+section{padding:30px 6%}
+.heading{font-size:22px;margin-bottom:18px}
+.heading span{color:#ff303c}
+.search{width:100%;padding:14px;background:#171820;border:1px solid #30313b;border-radius:8px;color:white;margin:0 0 22px;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.card{background:#171820;border-radius:10px;overflow:hidden;border:1px solid #282a34}
+.poster{height:155px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;font-size:22px;font-weight:900;background:linear-gradient(135deg,#50152c,#17152f)}
+.poster.two{background:linear-gradient(135deg,#123f54,#25133b)}
+.poster.three{background:linear-gradient(135deg,#59401a,#24132c)}
+.poster.four{background:linear-gradient(135deg,#164b36,#18162c)}
+.info{padding:13px}
+.info h3{font-size:15px;margin-bottom:7px}
+.info p{color:#aaa;font-size:12px}
+.watch{background:#ed2636;color:white;border:0;padding:9px 12px;border-radius:5px;margin-top:12px;cursor:pointer;width:100%}
+footer{text-align:center;padding:28px 12px;color:#888;background:#111219;font-size:12px;line-height:1.8}
+#player{display:none;padding:25px 6%;background:#171820}
+#player button{margin-top:15px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}.hero h1{font-size:58px}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo">VDI <span>STREAM</span></div>
+ <nav>
+  <a href="#home">Home</a>
+  <a href="#anime">Anime</a>
+ </nav>
+</header>
+
+<div class="hero" id="home">
+ <div class="tag">WELCOME TO VDI STUDIOS</div>
+ <h1>ANIME KA <span>NAYA ADDA.</span></h1>
+ <p>Hindi dubbed anime ki duniya mein aapka swagat hai. Naye adventures, naye characters aur entertainment ka naya experience.</p>
+ <a href="#anime"><button class="btn">EXPLORE ANIME →</button></a>
+</div>
+
+<section id="anime">
+ <h2 class="heading">Explore <span>Anime</span></h2>
+ <input class="search" id="search" placeholder="Search your anime..." oninput="searchAnime()">
+
+ <div class="grid" id="animeGrid">
+  <div class="card">
+   <div class="poster">SHADOW<br>LEGEND</div>
+   <div class="info"><h3>Shadow Legend</h3><p>Action • Hindi Dub</p><button class="watch" onclick="play('Shadow Legend')">Watch Now</button></div>
+  </div>
+  <div class="card">
+   <div class="poster two">CYBER<br>SOUL</div>
+   <div class="info"><h3>Cyber Soul</h3><p>Sci-Fi • Hindi Dub</p><button class="watch" onclick="play('Cyber Soul')">Watch Now</button></div>
+  </div>
+  <div class="card">
+   <div class="poster three">FIRE<br>WARRIOR</div>
+   <div class="info"><h3>Fire Warrior</h3><p>Adventure • Hindi Dub</p><button class="watch" onclick="play('Fire Warrior')">Watch Now</button></div>
+  </div>
+  <div class="card">
+   <div class="poster four">DREAM<br>HUNTER</div>
+   <div class="info"><h3>Dream Hunter</h3><p>Fantasy • Hindi Dub</p><button class="watch" onclick="play('Dream Hunter')">Watch Now</button></div>
+  </div>
+ </div>
+</section>
+
+<section id="player">
+ <h2 id="animeTitle">Anime Player</h2>
+ <p style="color:#aaa;margin-top:10px">Demo watch page — video playback will be added with properly licensed content.</p>
+ <button class="btn" onclick="document.getElementById('player').style.display='none'">← Back to Anime</button>
+</section>
+
+<footer>
+ <h3 style="color:#ff303c">VDI STREAM</h3>
+ Anime Ka Naya Adda.<br>
+ A VDI Studios Project<br>
+ © 2026 VDI Studios. All Rights Reserved.
+</footer>
+
+<script>
+function searchAnime(){
+ const q=document.getElementById('search').value.toLowerCase();
+ document.querySelectorAll('.card').forEach(card=>{
+  card.style.display=card.innerText.toLowerCase().includes(q)?'block':'none';
+ });
+}
+function play(name){
+ document.getElementById('animeTitle').innerText=name;
+ document.getElementById('player').style.display='block';
+ document.getElementById('player').scrollIntoView({behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
